@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Calculator</title>
+        <link rel="stylesheet" href="styles.css">
+    </head>
+<body> 
+<div class="buttons">
+    <input type=" text" id="display" readonly>
+    
+
+    <button id="clear">C</button>
+        <button id="del">DEL</button>
+        <button id = "percent">%</button>
+        <button class="operator">/</button>
+  
+
+    <button class="number">7</button>
+    <button class="number">8</button>
+    <button class="number">9</button>
+    <button class="operator">*</button>
+    
+
+    <button class="number">4</button>
+    <button class="number">5</button>
+    <button class="number">6</button>
+    <button class="operator">-</button>
+    
+
+    <button class="number">1</button>
+    <button class="number">2</button>
+    <button class="number">3</button>
+    <button class="operator">+</button>
+   
+
+    <button class="number">0</button>
+    <button class="number">00</button>
+    <button class="operator">.</button>
+    <button id="equal">=</button>
+   
+    </div>
+    
+
+    <script src="scripts.js" type = "module"></script>
+
+    <script type = "module">
+      
+ // instance of the Calc class
+  
+
+    const display = document.getElementById('display');
+    const clearBtn = document.getElementById('clear');
+    const equalBtn = document.getElementById('equal');
+    const numberBtns = document.querySelectorAll('.number');
+    const operatorBtns = document.querySelectorAll('.operator');
+    const delBtn = document.getElementById('del');
+    const percentBtn = document.getElementById('percent');
+
+    // Function to handle number button clicks
+
+    import Calc from './scripts.js';
+
+      numberBtns.forEach(button => {
+      button.addEventListener('click', () => {
+        display.value += button.textContent;
+      });
+    });
+
+    // Function to handle operator button clicks
+
+       operatorBtns.forEach(button => {
+       button.addEventListener('click', () => {
+        display.value += button.textContent;
+      });
+    });
+
+    // Function to handle clear button click
+
+      clearBtn.addEventListener('click', () => {
+      display.value = '';
+
+    });
+
+    // Function to handle equal button click
+
+    equalBtn.addEventListener('click', () => {
+  const expression = display.value;
+  let result; 
+
+  // Evaluate the expression
+    var jay = new Calc(expression);
+    console.log(jay);
+         
+
+    jay.Operation(display); 
+ 
+
+});
+
+
+    // Function to handle DEL button click
+
+        delBtn.addEventListener('click', () => {
+      display.value = display.value.slice(0, -1);
+
+});
+
+    // Function to handle percentage button click
+
+    percentBtn.addEventListener('click', () => {
+   display.value = parseFloat(display.value) / 100;
+
+});
+
+</script>
+</body>
+</html>
